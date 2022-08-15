@@ -1,0 +1,25 @@
+--4 prime between 2 no
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var flag=0,x1=prompt(),x2=prompt();
+		for (var i = x1; i <= x2; i++){
+			for (var j = 2; j <= i/2; j++) {
+				if(i%j==0){
+					flag=1;
+					break;
+				}	
+			}
+			if(flag==0)
+				console.log(i+" is Prime\n");
+			flag=0;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var x=prompt(),flag=0;
+		for (var i = 2; i <= x/2; i++){
+			if(x%i==0){
+				console.log("Entered no. is not a Prime\n");
+				flag=1;
+				break;
+			}
+		}
+		if(flag==0)
+			console.log("Entered no. is Prime");
+	</script>
+</body>
+</html>

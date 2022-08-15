@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="intropage.css">
+</head>
+<body onload="callRandomWidth()" onclick="playAudio()">
+
+	<!-- <audio autoplay controls loop>
+		
+		<source src="intropage.mp3" type="audio/mp3">
+
+    </audio>
+ -->
+	<div class="container">
+		
+		<!-- To add image in container -->
+
+		<div class="image-container">
+			
+			<img src="Firstpage.jpg">
+
+		</div>
+
+			<div class="progress-bar" id="progress-bar" onclick="startAudio()">
+
+				<div class="progress" id="progress"></div>
+
+			</div>
+
+			<div class="tap-here hide" id="tap-here">
+
+				<p>Tap to start</p>
+
+			</div>
+	</div>
+
+</body>
+
+	<!-- <script type="text/javascript" src="intropage.js"></script> -->
+
+	<script>
+			
+			let progressBar = document.getElementById("progress-bar");
+			let progress = document.getElementById("progress");
+			let tapHere = document.getElementById("tap-here")
+			let progressDivWidth = 800
+			let temp_width = 0;
+			let temp = 0;
+
+			console.log(progress);
+			// console.log("Random Width : " + random_width);
+
+			function randomWidth(){
+
+				let random_width = Math.random() * 50 + 200;
+				console.log("Old Width : " + random_width);
+
+				temp = temp + random_width; 
+				console.log("Random Width : " + random_width);
+
+				progress.style.width = temp + "px"; 
+				console.log(progress.style.width);
+
+					if(temp > progressDivWidth + 100){
+
+						clearInterval(random);
+						progressBar.classList.add("hide");
+						tapHere.classList.remove("hide");
+
+					}
+
+			}
+
+			function callRandomWidth(){
+
+				random = setInterval(randomWidth , 1000);
+
+			}
+
+			function playAudio(){
+
+				var audio = new Audio("intropage.mp3");
+				audio.play();
+			}
+
+			function startAudio(){
+
+				audio = setInterval(playAudio , 1000);
+			}
+	
+
+	</script>
+
+</html>

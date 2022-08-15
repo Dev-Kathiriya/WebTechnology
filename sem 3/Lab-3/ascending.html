@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var size=prompt("Enter size of array");
+		arr = [size];
+		for (var i = 0; i < size; i++)
+			arr[i]=prompt();
+		for (var i = 0; i < size; i++){
+			for (var j = i+1; j < size; j++) {
+				if(arr[i]>arr[j]){
+					temp=arr[j];
+					arr[j]=arr[i]
+					arr[i]=temp;
+				}
+			}
+		}
+		document.write(arr);
+	</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	Username : &nbsp <input type="text" name=""><br>
+	Password : &nbsp <input type="password" name="" id="pwd">&nbsp<button id="show" onclick="show()">Show</button><br>
+	<button id="login" onclick="login()">Login</button>
+	<script type="text/javascript">
+		usn="d";
+		pwd="1"
+		function show(){
+			temp=document.getElementById('show');
+			temp2=document.getElementById('pwd');
+			if (temp2.type=="password"){
+				temp2.type="text";
+				temp.innerHTML="Hide";
+			}
+			else{
+				temp2.type="password";
+				temp.innerHTML="Show";
+			}
+		}
+		function login() {
+			info=document.getElementsByTagName('input');
+			if(info[0].value==(usn) && info[1].value==(pwd))
+				window.location.href="www.facebook.com";
+		}
+	</script>
+</body>
+</html>

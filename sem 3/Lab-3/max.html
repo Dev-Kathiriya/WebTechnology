@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		str=prompt("Enter all no, space seprated");
+		str=str.split(" ");
+		max=parseInt(str[0]);
+		for (var i = 1; i < str.length; i++)
+			if(max<parseInt(str[i]))
+				max=str[i];
+		document.write(max);
+	</script>
+</body>
+</html>

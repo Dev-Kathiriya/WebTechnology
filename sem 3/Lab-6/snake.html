@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body onkeypress="checkKey(window.event)" style="border: 2px black solid;height: 95vh;">
+	Life:&nbsp;
+	<span id='life'>3</span><br>
+	Score:&nbsp;
+	<span id='score'>0</span>
+		<img id='snake' src="blue-square-emoticon.png" style="width: 5%;left: 677px;top: 277px;">
+		<img src='download.png' style="width: 5%;" id='food'>
+	<script type="text/javascript">
+		score=0;
+		life=3;
+		foodtop=0;foodleft=0;width=5;speed=10;
+		flag=false;
+		temp=document.getElementById('snake');
+		food=document.getElementById('food');
+		function reset(){
+			flag=false;
+			width=5;
+			temp.style.position="relative";
+			positionOfy=277;
+			positionOfx=677;
+		}
+		function foodSet() {
+			food.style.position="relative";
+			foodtop=(Math.random()*526);
+			foodleft=(Math.random()*1220);
+			food.style.top=foodtop+'px';
+			food.style.left=foodleft+'px';
+		}
+		reset();
+		foodSet();
+		function move(valuex,valuey) {
+			positionOfy+=valuey;
+			positionOfx+=valuex;
+			checkDead();
+			temp.style.top=positionOfy+"px";
+			temp.style.left=positionOfx+"px";
+			console.log(positionOfy+", "+foodtop+'\n'+positionOfx+', '+foodleft);
+			if((foodtop<=positionOfy+50 && foodtop+60>=positionOfy) && (foodleft<=positionOfx+20 && foodleft+130>=positionOfx)){
+				width+=1;
+				temp.style.width=width+'%';
+				score+=10;
+				speed/=2;
+				document.getElementById('score').innerHTML=score;
+				foodSet();
+			}
+		}
+		function checkDead(){
+			if(temp.style.top=="0px" || temp.style.left=="0px" || temp.style.top=="526px" || temp.style.left=="1220px"){
+				life--;
+				document.getElementById('life').innerHTML=life;
+				clearInterval(moved);
+				if(life<=0){
+					document.write('Game Over');
+				}
+				else
+					reset();
+			}
+		}
+		function checkKey(e) {
+			if(flag)
+				clearInterval(moved);
+			console.log(e.keyCode);
+			if(e.keyCode==97)
+				moved=setInterval(function(){move(-1,0)},speed);
+			else if(e.keyCode==100)
+				moved=setInterval(function(){move(1,0)},speed);
+			else if(e.keyCode==119)
+				moved=setInterval(function(){move(0,-1)},speed);
+			else if(e.keyCode==115)
+				moved=setInterval(function(){move(0,1)},speed);
+			flag=true;
+		}
+	</script>
+</body>
+</html>

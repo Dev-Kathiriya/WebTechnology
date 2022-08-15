@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str1=prompt("Enter String"),str2=prompt("Enter String"),ind=prompt("Enter index");
+		str1=str1.concat(" "+str2);
+		//Concat,indexOf,lastIndexOf,charAt
+		document.write("1.Concat = "+str1+"<br>2.Character is "+str1.charAt(parseInt(ind))+"<br>3.Index is" +
+						str1.indexOf(str1.charAt(parseInt(ind)))+"<br>4.Last index is"+str1.lastIndexOf(str1.charAt(parseInt(ind))));
+		//replace,split by space,Uppercase,LowerCase
+		prev =prompt("Enter a word to replace"),news=prompt("Enter replacement");
+		document.write("5.replace = "+str1.replace(prev,news)+"<br>6.Split = "+str1.split(" ")
+						+"<br>7.Uppercase = "+str1.toUpperCase()+"<br>8.LowerCase = "+str1.toLowerCase())
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="calc.css">
+	<title>
+	</title>
+</head>
+<body>
+	<div class="calc">
+		<input type="text" value="" name="" id="display" class="display">
+		<button id="reset" onclick="resets()">clear</button>
+	</div>
+	<script type="text/javascript">
+		function resets() {
+			var input=document.getElementById("display");
+			input.value="";
+		}
+		function createbtn(text){
+			btn=document.createElement("button");
+			btn.innerText=text;
+			btn.id="btn"+text;
+			document.body.appendChild(btn);
+			btn.addEventListener("click",function(){
+				if(isNaN(text)){
+					if(text=="=")
+						ans();
+					else
+						operation(text);
+				}
+				else
+					display(text);
+			});
+		}
+		var oldvalue,opr;
+		function ans(){
+			input=document.getElementById("display");
+			switch(opr){
+				case "/": input.value=oldvalue/parseInt(input.value);
+							break;
+				case "*": input.value=oldvalue*parseInt(input.value);
+							break;
+				case "+": input.value=oldvalue+parseInt(input.value);
+							break;
+				case "-": input.value=oldvalue-parseInt(input.value);
+							break;
+				default : input.value="Enter Valid operation";
+			}
+		}
+		function operation(oper) {
+			input=document.getElementById("display");
+			oldvalue=parseInt(input.value);
+			input.value="";
+			opr=oper;
+		}
+		function display(text) {
+			var input=document.getElementById("display");
+			input.value+=text;
+		}
+		function input(no) {
+			document.write("<br>");
+			//Operation buttom
+			createbtn("*");createbtn("/");createbtn("+");
+			document.write("<br>");
+			while(no>=0){
+				createbtn(no);
+				if((no-1)%3==0)
+					document.write("<br>");
+				no--;
+			}
+			createbtn(".");createbtn("=");
+		}
+		input(9);
+	</script>
+</body>
+</html>

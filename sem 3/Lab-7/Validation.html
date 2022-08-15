@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	Username:&nbsp;
+	<input type="text" name="" id='username'><span id='sp'></span><br>
+	<button onclick="validate()">Submit</button>
+	<script type="text/javascript">
+		function validate() {
+			user=document.getElementById('username');
+			re=/^dev/;
+			console.log(user.value)
+			sp=document.getElementById('sp');
+			if(re.test(user.value))
+				sp.innerHTML='Valid';
+			else
+				sp.innerHTML='Invalid';
+		}
+	</script>
+</body>
+</html>

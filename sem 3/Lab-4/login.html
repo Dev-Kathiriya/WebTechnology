@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	Username : &nbsp <input type="text" name=""><br>
+	Password : &nbsp <input type="password" name="" id="pwd">&nbsp<button id="show" onclick="show()">Show</button><br>
+	<button id="Login" onclick="Login()">Login</button>
+	<script type="text/javascript">
+		function show(){
+			temp=document.getElementById('show');
+			temp2=document.getElementById('pwd');
+			if (temp2.type=="password"){
+				temp2.type="text";
+				temp.innerHTML="Hide";
+			}
+			else{
+				temp2.type="password";
+				temp.innerHTML="Show";
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<input type="number" id="values" name=""><br>
+	<button onclick="start()">Start</button>
+	<script type="text/javascript">
+		var terval;
+		time=0;
+		function starts(){
+			values = document.getElementById("values");
+			values.value=time;
+				time--;
+			if(0>time)
+				clearInterval(terval);
+		}
+		function start() {
+			time = parseInt(document.getElementById("values").value);
+			terval=setInterval(starts,1000);
+		}
+	</script>
+</body>
+</html>
