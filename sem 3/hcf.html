@@ -7,9 +7,9 @@
 </head>
 <body>
 	<script type="text/javascript">
-		var x=prompt(),hcf;
+		var x=prompt(),y=prompt(),hcf;
 		for (var i = 2; i < x; i++)
-			if(x%i==0)
+			if(x%i==0 && y%i==0)
 				hcf=i;
 		document.write(hcf);
 	</script>
